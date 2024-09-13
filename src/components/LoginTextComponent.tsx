@@ -1,24 +1,26 @@
-// src/components/LoginTextComponent.tsx
 import React from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import {Text, StyleSheet, View} from 'react-native';
 
 const LoginTextComponent: React.FC = () => {
   return (
-    <View style={styles.textContainer}>
+    <View style={styles.container}>
       <Text style={styles.loginText}>Log in</Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  textContainer: {
+  container: {
+    marginBottom: 30,
     alignItems: 'center',
-    marginBottom: 20,
   },
   loginText: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#4A4A4A',
+    fontSize: 20,
+    fontWeight: '600',
+    color: '#3949AB',
+    fontFamily: 'Lato',
+    lineHeight: 24,
+    textAlign: 'center',
   },
 });
 

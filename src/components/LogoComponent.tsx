@@ -1,4 +1,3 @@
-// src/components/LogoComponent.tsx
 import React from 'react';
 import {View, Image, StyleSheet} from 'react-native';
 
@@ -16,9 +15,8 @@ const styles = StyleSheet.create({
     marginBottom: 40,
   },
   logo: {
-    width: 49, // Adjust width as needed
-    height: 49, // Adjust height as needed
-    resizeMode: 'contain', // Adjust based on your design
+    width: 49, // Matches the width from Figma
+    height: 49, // Matches the height from Figma
   },
 });
 
