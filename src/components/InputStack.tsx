@@ -1,13 +1,17 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import InputComponent from './InputComponent';
-import ForgotPasswordComponent from './ForgotPasswordComponent'; // Add the ForgotPassword component
+import ForgotPasswordComponent from './ForgotPasswordComponent';
 
 const InputStack: React.FC = () => {
   return (
     <View style={styles.inputStackContainer}>
-      <InputComponent placeholder="Email" />
-      <InputComponent placeholder="Password" isPassword={true} />
+      <InputComponent placeholder="Email" iconName="EmailIcon" />
+      <InputComponent
+        placeholder="Password"
+        iconName="LockIcon"
+        isPassword={true}
+      />
       <ForgotPasswordComponent />
     </View>
   );
