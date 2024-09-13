@@ -1,6 +1,7 @@
 import React from 'react';
 import {SafeAreaView, View, StyleSheet} from 'react-native';
 import LogoComponent from './src/components/LogoComponent';
+import LoginTextComponent from './src/components/LoginTextComponent'; // Import the new LoginTextComponent
 import InputComponent from './src/components/InputComponent';
 import LoginButtonComponent from './src/components/LoginButtonComponent';
 import SocialButtonsComponent from './src/components/SocialButtonsComponent';
@@ -10,6 +11,7 @@ const App: React.FC = () => {
   return (
     <SafeAreaView style={styles.container}>
       <LogoComponent />
+      <LoginTextComponent />
       <InputComponent placeholder="Email" />
       <InputComponent placeholder="Password" isPassword={true} />
       <LoginButtonComponent />

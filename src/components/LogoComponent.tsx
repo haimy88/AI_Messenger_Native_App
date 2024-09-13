@@ -1,11 +1,11 @@
-// /src/components/LogoComponent/LogoComponent.tsx
+// src/components/LogoComponent.tsx
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Image, StyleSheet} from 'react-native';
 
 const LogoComponent: React.FC = () => {
   return (
     <View style={styles.logoContainer}>
-      <Text style={styles.logo}>S</Text>
+      <Image source={require('../images/Logo.png')} style={styles.logo} />
     </View>
   );
 };
@@ -16,9 +16,9 @@ const styles = StyleSheet.create({
     marginBottom: 40,
   },
   logo: {
-    fontSize: 50,
-    fontWeight: 'bold',
-    color: '#4A4A4A',
+    width: 49, // Adjust width as needed
+    height: 49, // Adjust height as needed
+    resizeMode: 'contain', // Adjust based on your design
   },
 });
 
