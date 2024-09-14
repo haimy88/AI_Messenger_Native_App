@@ -21,7 +21,6 @@ const styles = StyleSheet.create({
   inputStackContainer: {
     width: 300,
     gap: 16,
-    marginBottom: 20,
   },
 });
 

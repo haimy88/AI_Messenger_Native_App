@@ -56,7 +56,7 @@ const InputComponent: React.FC<InputProps> = ({
 const styles = StyleSheet.create({
   container: {
     position: 'relative',
-    marginBottom: 15,
+    marginBottom: 4,
   },
   icon: {
     position: 'absolute',

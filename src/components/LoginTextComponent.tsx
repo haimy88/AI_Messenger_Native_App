@@ -11,7 +11,7 @@ const LoginTextComponent: React.FC = () => {
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 50,
+    marginBottom: 60,
     alignItems: 'center',
   },
   loginText: {

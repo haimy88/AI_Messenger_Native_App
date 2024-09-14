@@ -13,7 +13,6 @@ const App: React.FC = () => {
       <LoginTextComponent />
       <InputStack />
       <ButtonStack />
-      <RegisterComponent />
     </SafeAreaView>
   );
 };

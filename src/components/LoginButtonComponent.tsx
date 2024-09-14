@@ -13,13 +13,15 @@ const styles = StyleSheet.create({
   loginButton: {
     backgroundColor: '#A4A8D1',
     padding: 15,
-    borderRadius: 10,
+    borderRadius: 40,
     alignItems: 'center',
+    width: 300,
   },
   loginButtonText: {
     color: '#FFFFFF',
     fontWeight: 'bold',
     fontSize: 16,
+    fontFamily: 'Lato',
   },
 });
 

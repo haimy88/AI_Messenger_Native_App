@@ -5,7 +5,7 @@ const RegisterComponent: React.FC = () => {
   return (
     <View style={styles.registerContainer}>
       <Text style={styles.registerText}>Have no account yet?</Text>
-      <TouchableOpacity>
+      <TouchableOpacity style={styles.registerButton}>
         <Text style={styles.registerLink}>Register</Text>
       </TouchableOpacity>
     </View>
@@ -14,17 +14,35 @@ const RegisterComponent: React.FC = () => {
 
 const styles = StyleSheet.create({
   registerContainer: {
-    flexDirection: 'row',
+    width: '100%',
     justifyContent: 'center',
-    marginTop: 30,
+    alignItems: 'center',
+    marginTop: 8,
   },
   registerText: {
     color: '#A9A9A9',
+    marginBottom: 10,
+    fontFamily: 'Lato',
+    fontWeight: '400',
+    fontSize: 14,
+    lineHeight: 16.8,
+    textAlign: 'center',
+  },
+  registerButton: {
+    width: '100%',
+    borderColor: '#3949AB',
+    borderWidth: 1,
+    borderRadius: 40,
+    paddingVertical: 10,
+    alignItems: 'center',
   },
   registerLink: {
-    color: '#A4A8D1',
-    marginLeft: 5,
-    fontWeight: 'bold',
+    color: '#3949AB',
+    fontWeight: '400',
+    fontFamily: 'Lato',
+    fontSize: 14,
+    lineHeight: 16.8,
+    textAlign: 'center',
   },
 });
 
