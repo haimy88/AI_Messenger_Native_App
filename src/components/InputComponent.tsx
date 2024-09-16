@@ -22,7 +22,7 @@ const InputComponent: React.FC<InputProps> = ({
   onChangeText,
   ...props
 }) => {
-  const [isPasswordVisible, setPasswordVisible] = useState(isPassword);
+  const [isPasswordVisible, setPasswordVisible] = useState(!isPassword);
 
   const iconMap: {[key: string]: any} = {
     LockIcon: require('../images/LockIcon.png'),
