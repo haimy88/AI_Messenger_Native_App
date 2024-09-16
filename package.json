@@ -10,9 +10,12 @@
     "test": "jest"
   },
   "dependencies": {
+    "axios": "^1.7.7",
     "react": "18.3.1",
     "react-native": "0.75.2",
-    "react-native-svg": "^15.6.0"
+    "react-native-svg": "^15.6.0",
+    "react-native-toast-message": "^2.2.0",
+    "styled-components": "^6.1.13"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
@@ -29,6 +32,7 @@
     "eslint": "^8.19.0",
     "jest": "^29.6.3",
     "prettier": "2.8.8",
+    "react-native-flipper": "^0.266.0",
     "react-native-svg-transformer": "^1.5.0",
     "react-test-renderer": "18.3.1",
     "typescript": "5.0.4"

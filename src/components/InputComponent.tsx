@@ -18,6 +18,8 @@ const InputComponent: React.FC<InputProps> = ({
   placeholder,
   isPassword = false,
   iconName,
+  value,
+  onChangeText,
   ...props
 }) => {
   const [isPasswordVisible, setPasswordVisible] = useState(isPassword);
@@ -40,6 +42,8 @@ const InputComponent: React.FC<InputProps> = ({
         placeholder={placeholder}
         secureTextEntry={isPassword && !isPasswordVisible}
         placeholderTextColor="#A9A9A9"
+        value={value}
+        onChangeText={onChangeText}
         {...props}
       />
       {isPassword && (

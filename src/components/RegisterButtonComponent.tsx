@@ -1,13 +1,33 @@
-import React from 'react';
+import React, {useContext, useState} from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import {AuthContext} from '../contexts/AuthContext';
 
-const RegisterComponent: React.FC = () => {
+const RegisterButtonComponent: React.FC = () => {
+  const authContext = useContext(AuthContext);
+
+  if (!authContext) {
+    throw new Error('AuthContext must be used within an AuthProvider');
+  }
+
+  const {register, loading, error, clearFormAndState} = authContext;
+
+  const handleRegister = () => {
+    register().then(() => {
+      clearFormAndState(); // Clear the state in AuthContext
+    });
+  };
+
   return (
     <View style={styles.registerContainer}>
-      <Text style={styles.registerText}>Have no account yet?</Text>
-      <TouchableOpacity style={styles.registerButton}>
-        <Text style={styles.registerLink}>Register</Text>
+      <TouchableOpacity
+        style={styles.registerButton}
+        onPress={handleRegister}
+        disabled={loading}>
+        <Text style={styles.registerLink}>
+          {loading ? 'Registering...' : 'Register'}
+        </Text>
       </TouchableOpacity>
+      {error && <Text style={styles.error}>{error}</Text>}
     </View>
   );
 };
@@ -18,15 +38,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 8,
-  },
-  registerText: {
-    color: '#A9A9A9',
-    marginBottom: 10,
-    fontFamily: 'Lato',
-    fontWeight: '400',
-    fontSize: 14,
-    lineHeight: 16.8,
-    textAlign: 'center',
   },
   registerButton: {
     width: '100%',
@@ -44,6 +55,10 @@ const styles = StyleSheet.create({
     lineHeight: 16.8,
     textAlign: 'center',
   },
+  error: {
+    color: 'red',
+    marginTop: 10,
+  },
 });
 
-export default RegisterComponent;
+export default RegisterButtonComponent;
