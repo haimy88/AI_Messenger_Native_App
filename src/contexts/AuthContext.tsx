@@ -11,6 +11,7 @@ interface AuthContextType {
   email: string | undefined;
   setEmail: (email: string) => void;
   setPassword: (password: string) => void;
+  isEmailValid: boolean;
 }
 
 export const AuthContext = createContext<AuthContextType | undefined>(
@@ -23,16 +24,29 @@ export const AuthProvider: React.FC<{children: ReactNode}> = ({children}) => {
   const [password, setPassword] = useState<string>('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [isEmailValid, setIsEmailValid] = useState<boolean>(false);
+
+  const validateEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
 
   const register = async () => {
     setLoading(true);
     setError(null);
-    console.log(
-      'Attempting to register with email:',
-      email,
-      'and password:',
-      password,
-    );
+
+    if (!isEmailValid) {
+      setError('Invalid email format.');
+      Toast.show({
+        topOffset: 80,
+        type: 'error',
+        text1: 'Invalid email',
+        text2: 'Please enter a valid email address.',
+      });
+      setLoading(false);
+      return;
+    }
+
     try {
       const response = await axios.post(
         'https://registrationserver.azurewebsites.net/register',
@@ -41,33 +55,35 @@ export const AuthProvider: React.FC<{children: ReactNode}> = ({children}) => {
           password: password,
         },
       );
-      console.log('Registration response:', response.data);
 
       setUser({email});
-      console.log('User set after registration:', {email});
 
       const toastResponse = await axios.post('http://localhost:8000/toast', {
         username: email,
       });
-      console.log('Toast message response:', toastResponse.data);
 
       Toast.show({
+        topOffset: 80,
         type: 'success',
         text1: 'Registration successful!',
-        text2: toastResponse.data.message,
+        text2: toastResponse.data.toast,
       });
     } catch (err) {
-      console.error('Error during registration:', err);
       setError('Registration failed.');
       Toast.show({
+        topOffset: 80,
         type: 'error',
         text1: 'Registration failed',
         text2: 'Please try again.',
       });
     } finally {
       setLoading(false);
-      console.log('Loading state set to false after registration attempt.');
     }
+  };
+
+  const handleEmailChange = (email: string) => {
+    setEmail(email);
+    setIsEmailValid(validateEmail(email));
   };
 
   const clearFormAndState = () => {
@@ -75,7 +91,6 @@ export const AuthProvider: React.FC<{children: ReactNode}> = ({children}) => {
     setError(null);
     setEmail('');
     setPassword('');
-    console.log('Form and state cleared.');
   };
 
   return (
@@ -84,11 +99,12 @@ export const AuthProvider: React.FC<{children: ReactNode}> = ({children}) => {
         email,
         clearFormAndState,
         password,
-        setEmail,
+        setEmail: handleEmailChange,
         setPassword,
         register,
         loading,
         error,
+        isEmailValid,
       }}>
       {children}
     </AuthContext.Provider>
