@@ -75,13 +75,13 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#CCCCCC',
     borderRadius: 10,
-    padding: 10,
-    paddingLeft: 50,
+    padding: 8,
+    paddingLeft: 40,
     color: '#333333',
-    height: 50,
+    height: 40,
   },
   inputWithIcon: {
-    paddingLeft: 50,
+    paddingLeft: 40,
   },
   viewIconContainer: {
     position: 'absolute',

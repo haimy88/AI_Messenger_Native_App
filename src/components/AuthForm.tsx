@@ -1,5 +1,5 @@
 import React from 'react';
-import {View} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import LogoComponent from './LogoComponent';
 import LoginTextComponent from './LoginTextComponent';
 import InputStack from './InputStack';
@@ -7,7 +7,7 @@ import ButtonStack from './ButtonStack';
 
 const AuthForm = () => {
   return (
-    <View>
+    <View style={styles.authFormContainer}>
       <LogoComponent />
       <LoginTextComponent />
       <InputStack />
@@ -15,5 +15,11 @@ const AuthForm = () => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  authFormContainer: {
+    marginBottom: 140,
+  },
+});
 
 export default AuthForm;

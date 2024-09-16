@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 import SocialButtonComponent from './SocialButtonComponent';
 import LoginButtonComponent from './LoginButtonComponent';
 import RegisterButtonComponent from './RegisterButtonComponent';
@@ -20,6 +20,7 @@ const ButtonStack: React.FC = () => {
           buttonText="Facebook"
         />
       </View>
+      <Text style={styles.haveAccountText}>Have no account yet?</Text>
       <RegisterButtonComponent />
     </View>
   );
@@ -30,13 +31,18 @@ const styles = StyleSheet.create({
     width: 300,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 30,
-    marginBottom: 100,
+    marginTop: 35,
   },
   socialButtonsRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     width: '100%',
+  },
+  haveAccountText: {
+    color: '#7B7B7B',
+    fontSize: 14,
+    marginTop: 10,
+    marginBottom: 8,
   },
 });
 

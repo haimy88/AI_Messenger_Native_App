@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import {AuthContext} from '../contexts/AuthContext';
 
@@ -13,7 +13,7 @@ const RegisterButtonComponent: React.FC = () => {
 
   const handleRegister = () => {
     register().then(() => {
-      clearFormAndState(); // Clear the state in AuthContext
+      clearFormAndState();
     });
   };
 
@@ -44,8 +44,10 @@ const styles = StyleSheet.create({
     borderColor: '#3949AB',
     borderWidth: 1,
     borderRadius: 40,
-    paddingVertical: 10,
+    paddingVertical: 5,
+    height: 40,
     alignItems: 'center',
+    justifyContent: 'center',
   },
   registerLink: {
     color: '#3949AB',

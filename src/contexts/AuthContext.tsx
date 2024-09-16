@@ -7,7 +7,7 @@ interface AuthContextType {
   loading: boolean;
   error: string | null;
   clearFormAndState: () => void;
-  password: string | undefined;
+  password: string | '';
   email: string | undefined;
   setEmail: (email: string) => void;
   setPassword: (password: string) => void;
