@@ -39,7 +39,6 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontSize: 14,
-
     color: '#3949AB',
     fontFamily: 'Lato-Regular',
   },
