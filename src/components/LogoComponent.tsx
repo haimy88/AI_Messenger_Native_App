@@ -15,8 +15,8 @@ const styles = StyleSheet.create({
     marginBottom: 40,
   },
   logo: {
-    width: 49, // Matches the width from Figma
-    height: 49, // Matches the height from Figma
+    width: 49,
+    height: 49,
   },
 });
 

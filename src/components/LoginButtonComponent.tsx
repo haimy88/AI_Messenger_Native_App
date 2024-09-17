@@ -24,8 +24,8 @@ const LoginButtonComponent: React.FC = () => {
 
 const styles = StyleSheet.create({
   loginButton: {
-    backgroundColor: '#A4A8D1', // Default background color
-    height: 40, // Fixed height
+    backgroundColor: '#A4A8D1',
+    height: 40,
     borderRadius: 40,
     alignItems: 'center',
     justifyContent: 'center',

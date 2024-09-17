@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
   forgotPasswordText: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#3949AB', // Color from Figma design
+    color: '#3949AB',
     textAlign: 'right',
     fontFamily: 'Lato-Regular',
   },
