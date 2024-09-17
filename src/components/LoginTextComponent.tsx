@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '600',
     color: '#3949AB',
-    fontFamily: 'Lato',
+    fontFamily: 'Lato-Regular',
     lineHeight: 24,
     textAlign: 'center',
   },

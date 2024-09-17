@@ -38,9 +38,10 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   buttonText: {
-    fontSize: 16,
-    fontWeight: 'bold',
+    fontSize: 14,
+
     color: '#3949AB',
+    fontFamily: 'Lato-Regular',
   },
 });
 

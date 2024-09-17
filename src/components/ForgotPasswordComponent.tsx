@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#3949AB', // Color from Figma design
     textAlign: 'right',
-    fontFamily: 'Lato',
+    fontFamily: 'Lato-Regular',
   },
 });
 
