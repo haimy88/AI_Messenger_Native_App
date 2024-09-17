@@ -25,9 +25,9 @@ const InputComponent: React.FC<InputProps> = ({
   const [isPasswordVisible, setPasswordVisible] = useState(!isPassword);
 
   const iconMap: {[key: string]: any} = {
-    LockIcon: require('../images/LockIcon.png'),
-    ViewIcon: require('../images/ViewIcon.png'),
-    EmailIcon: require('../images/EmailIcon.png'),
+    LockIcon: require('../../assets/images/LockIcon.png'),
+    ViewIcon: require('../../assets/images/ViewIcon.png'),
+    EmailIcon: require('../../assets/images/EmailIcon.png'),
   };
 
   const togglePasswordVisibility = () => {

@@ -4,7 +4,10 @@ import {View, Image, StyleSheet} from 'react-native';
 const LogoComponent: React.FC = () => {
   return (
     <View style={styles.logoContainer}>
-      <Image source={require('../images/Logo.png')} style={styles.logo} />
+      <Image
+        source={require('../../assets/images/Logo.png')}
+        style={styles.logo}
+      />
     </View>
   );
 };

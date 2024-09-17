@@ -12,11 +12,11 @@ const ButtonStack: React.FC = () => {
       <DividerComponent />
       <View style={styles.socialButtonsRow}>
         <SocialButtonComponent
-          iconPath={require('../images/GoogleIcon.png')}
+          iconPath={require('../../assets/images/GoogleIcon.png')}
           buttonText="Google"
         />
         <SocialButtonComponent
-          iconPath={require('../images/FacebookIcon.png')}
+          iconPath={require('../../assets/images/FacebookIcon.png')}
           buttonText="Facebook"
         />
       </View>

@@ -18,7 +18,7 @@ const AuthForm = () => {
 
 const styles = StyleSheet.create({
   authFormContainer: {
-    marginBottom: 140,
+    marginBottom: '14%',
   },
 });
 
