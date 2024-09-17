@@ -1,6 +1,7 @@
 import React, {createContext, useState, ReactNode} from 'react';
-import axios from 'axios';
 import Toast from 'react-native-toast-message';
+import axios from 'axios';
+import authService from '../services/authService';
 
 interface AuthContextType {
   register: () => Promise<void>;
@@ -48,33 +49,36 @@ export const AuthProvider: React.FC<{children: ReactNode}> = ({children}) => {
     }
 
     try {
-      const response = await axios.post(
-        'https://registrationserver.azurewebsites.net/register',
-        {
-          username: email,
-          password: password,
-        },
-      );
-
+      await authService.register(email, password);
       setUser({email});
 
-      const toastResponse = await axios.post('http://localhost:8000/toast', {
-        username: email,
-      });
-
+      const toastMessage = await authService.triggerToast(email);
       Toast.show({
         topOffset: 80,
         type: 'success',
         text1: 'Registration successful!',
-        text2: toastResponse.data.toast,
+        text2: toastMessage,
       });
     } catch (err) {
-      setError('Registration failed.');
+      let errorMessage: string;
+
+      if (typeof err === 'string') {
+        errorMessage = err;
+      } else if (axios.isAxiosError(err)) {
+        errorMessage = err.response?.data?.message || 'Failed to register';
+      } else if (err instanceof Error) {
+        errorMessage = err.message;
+      } else {
+        errorMessage = 'An unknown error occurred';
+      }
+
+      setError(errorMessage);
+
       Toast.show({
         topOffset: 80,
         type: 'error',
         text1: 'Registration failed',
-        text2: 'Please try again.',
+        text2: errorMessage,
       });
     } finally {
       setLoading(false);
@@ -110,3 +114,5 @@ export const AuthProvider: React.FC<{children: ReactNode}> = ({children}) => {
     </AuthContext.Provider>
   );
 };
+
+export default AuthContext;
